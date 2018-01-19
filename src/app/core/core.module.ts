@@ -5,7 +5,7 @@ import {BackendConnectService} from './backend-connect.service';
 
 @NgModule({
   imports: [
-   HttpClientModule,
+   HttpClientModule
    
   ],
   declarations: [
