@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import {AuthService} from './auth.service';
-import {BackendConnectService} from './backend-connect.service';
+import { AuthService } from './auth.service';
+import { BackendConnectService } from './backend-connect.service';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   imports: [
@@ -12,7 +13,9 @@ import {BackendConnectService} from './backend-connect.service';
   ],
 
   providers: [
-      BackendConnectService
+      BackendConnectService,
+      AuthGuardService,
+      AuthService
   ],
 
   exports:[

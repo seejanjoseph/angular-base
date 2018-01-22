@@ -21,14 +21,13 @@ export class LoginComponent {
   }  
 
   submitLogin(value: any):void{
-    console.log('Reactive Form Data: ')
-    console.log(value);
-     // Variable to hold a reference of addComment/updateComment
-        //let commentOperation:Observable<Comment[]>;
-    this.backendConnectService.postRequest(value)
-      .subscribe(hero => {
-        //this.heroes.push(hero);
-        console.log(hero);
-      });
+    this.backendConnectService.postRequest(value).subscribe( authVal => {
+      console.log(authVal);
+      if (authVal.success === true) {
+        sessionStorage.setItem('app-token', authVal.token);
+      } else {
+        console.log('not valid user');
+      }
+    });
   }
 }
