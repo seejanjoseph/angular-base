@@ -5,11 +5,15 @@ import {
 } from '../core/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'public', pathMatch: 'full' },
-  //{ path: 'eager', component: EagerComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { 
-    path: 'public', 
-    loadChildren: '../public/public.module#PublicModule' 
+    path: 'login', 
+    //component: LoginHomeComponent,  
+    loadChildren: '../login/login.module#LoginModule'
+  },
+  { 
+    path: 'user', 
+    loadChildren: '../user/user.module#UserModule' 
   },
   { 
     path: 'admin', 

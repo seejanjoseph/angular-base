@@ -1,25 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PublicRoutingModule } from './public.routing';
-import { PublicHomeComponent } from './components/public-home/public-home.component';
+import { UserRoutingModule } from './user.routing';
+import { UserHomeComponent } from './components/user-home/user-home.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
-import { LoginComponent } from './components/login/login.component';
 import { BackendConnectService } from '../core/backend-connect.service';
 
 
 @NgModule({
   imports: [  
-    CommonModule,  
-    FormsModule, 
-    ReactiveFormsModule,
-    PublicRoutingModule
+    CommonModule,
+    UserRoutingModule
   ],
   declarations: [   
-    PublicHomeComponent,
-    UserRegisterComponent,
-    LoginComponent
+    UserHomeComponent,
+    UserRegisterComponent
   ],
   providers: [
    // AuthService,
@@ -29,4 +24,4 @@ import { BackendConnectService } from '../core/backend-connect.service';
    // LoginComponent
   ]
 })
-export class PublicModule { }
+export class UserModule { }

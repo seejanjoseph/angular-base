@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PublicHomeComponent } from './components/public-home/public-home.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
-import { LoginComponent } from './components/login/login.component';
+//import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [ 
   { 
     path: '', 
-    component: PublicHomeComponent, 
+    component: UserHomeComponent, 
     children : [
-      { path: 'user-register', component: UserRegisterComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'user-register', component: UserRegisterComponent }//,
+     // { path: 'login', component: LoginComponent }
     ]
   }
 ];
@@ -19,4 +19,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PublicRoutingModule { }
+export class UserRoutingModule { }
