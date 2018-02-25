@@ -9,6 +9,7 @@ router.get('/users', function(req, res) {
 });
 
 router.post('/login', function(req, res) {
+  console.log("seejan");
   const loginController = new LoginController();  
   loginController.userValidation(req).then((val) => {    
     res.send(val);

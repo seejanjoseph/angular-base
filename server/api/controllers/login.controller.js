@@ -1,27 +1,45 @@
-let jwt    = require('jsonwebtoken');
+//let jwt = require('jsonwebtoken');
+let UserModel = require('../models/user.model')
 
 class LoginController {
   constructor() {
-    console.log('in-----');
+    this.userModel = new UserModel();
   }
 
   userValidation(req) {
-    return new Promise((resolve, reject) => { 
-      let returnObj;
-      
-      if (req.body.userName && req.body.password) {        
-        const token = jwt.sign({ username: req.body.userName}, 'my-super-secret');        
-        returnObj = {
-          success: true,
-          message: 'Enjoy your token!',
-          token: token
-        };        
-        resolve(returnObj);
-      } else {
-        returnObj = {
+    console.log("her");
+    return new Promise((resolve, reject) => {
+      try {
+        let returnObj;
+        let userName = req.body.userName;
+        let password = req.body.password;
+        if (userName && password) {
+          this.userModel.userValidation(userName, password).then((val) => {
+            if (val.success) {
+              resolve(val);
+            } else {
+              reject(val);
+            }
+          }).catch((err) => {
+            reject({
+              desc: 'user and password are empty',
+              error: err,
+              success: false
+            });
+          });
+        } else {
+          reject({
+            desc: 'user and password are empty',
+            error: 'empty user and pass',
+            success: false
+          });
+        }
+      } catch (err) {
+        reject({
+          desc: 'something went wrong',
+          error: err,
           success: false
-        };
-        reject(returnObj);
+        });
       }
     });
   }
