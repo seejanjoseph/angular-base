@@ -16,6 +16,7 @@ class LoginController {
         if (userName && password) {
           this.userModel.userValidation(userName, password).then((val) => {
             if (val.success) {
+              console.log("test - test", val);
               resolve(val);
             } else {
               reject(val);

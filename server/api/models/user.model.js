@@ -10,25 +10,34 @@ class UserModel {
         const loginTable = [
             {
                 userName: 'user',
-                password: 'user',
+                password: 'password',
                 type: 'user'
             },
             {
                 userName: 'admin',
-                password: 'admin',
+                password: 'password',
                 type: 'admin'
             }
         ];
         return new Promise((resolve, reject) => {
+            //Add roles to token and attribute and send it back to FE
+            //Validate the roles and token when new user request comes
             try {
                 const filteredUser = loginTable.filter(item => {
                     return item.userName === user && item.password === pass;
                 });
                 if (filteredUser.length) {
-                    const token = jwt.sign({ username: user }, 'my-super-secret-key');
+                    const token = jwt.sign(
+                        {
+                            username: filteredUser.userName,
+                            exp: Math.floor(Date.now() / 1000) + (60 * 60)
+                        },
+                        'my-super-secret-key'
+                    );
                     resolve({
                         success: true,
                         message: 'Enjoy your token!',
+                        role: filteredUser[0].type,
                         token: token
                     });
                 } else {
