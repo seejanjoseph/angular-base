@@ -6,8 +6,7 @@ import { BackendConnectService } from '../../../core/backend-connect.service';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']//,
-  //providers: [BackendConnectService]
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 
@@ -29,7 +28,6 @@ export class LoginComponent {
     this.backendConnectService.postRequest(value).subscribe(authVal => {
       if (authVal.success === true) {
         sessionStorage.setItem('app-token', authVal.token);
-        console.log(authVal);
         if (authVal.role === 'user') {
           this.router.navigate(['/user']);
         } else {

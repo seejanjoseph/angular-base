@@ -10,7 +10,6 @@ export class AuthService {
   public isAuthenticated(): boolean {
 
     const token = sessionStorage.getItem('app-token');
-    console.log(token);
     if (token) {
       console.log(true);
       return true;

@@ -3,23 +3,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { BackendConnectService } from './backend-connect.service';
 import { AuthGuardService } from './auth-guard.service';
+import { HttpRequestInterceptor } from './http-request-interceptor.service';
 
 @NgModule({
   imports: [
-   HttpClientModule
-   
+    HttpClientModule
   ],
   declarations: [
   ],
-
   providers: [
-      BackendConnectService,
-      AuthGuardService,
-      AuthService
+    BackendConnectService,
+    AuthGuardService,
+    AuthService,
+    HttpRequestInterceptor
   ],
 
-  exports:[
+  exports: [
   ]
-  
+
 })
 export class CoreModule { }
