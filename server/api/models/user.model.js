@@ -31,6 +31,7 @@ class UserModel {
     }
 
     getUsersList() {
+        console.log("tets");
         return new Promise((resolve, reject) => {
             resolve(loginTable);
         });

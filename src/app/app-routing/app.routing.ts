@@ -5,9 +5,9 @@ import {
 } from '../core/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'landing', pathMatch: 'full' },
   {
-    path: 'login',
+    path: 'landing',
     //component: LoginHomeComponent,  
     loadChildren: '../login/login.module#LoginModule'
   },
@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: 'admin',
     canActivate: [AuthGuard],
-    loadChildren: '../admin/admin.module#AdminModule';
+    loadChildren: '../admin/admin.module#AdminModule'
   }
 ];
 

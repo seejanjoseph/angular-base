@@ -25,8 +25,10 @@ export class LoginComponent {
   }
 
   submitLogin(value: any): void {
-    this.backendConnectService.postRequest(value).subscribe(authVal => {
+    this.backendConnectService.post('login', value).subscribe(authVal => {
+      console.log(authVal);
       if (authVal.success === true) {
+        console.log('in');
         sessionStorage.setItem('app-token', authVal.token);
         if (authVal.role === 'user') {
           this.router.navigate(['/user']);

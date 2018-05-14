@@ -10,7 +10,6 @@ export class HttpRequestInterceptor implements HttpInterceptor {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     // Clone the request to add the new header.
     const token = sessionStorage.getItem('app-token');
     let authReq;

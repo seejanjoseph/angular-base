@@ -1,10 +1,12 @@
 let express = require('express');
 let router = express.Router();
 
-let userController = require('../controllers/user.controller');
+let UserController = require('../controllers/user.controller');
+let LoginController = require('../controllers/login.controller');
 
 /* GET users listing. */
 router.get('/users', function (req, res) {
+  // https://medium.freecodecamp.org/securing-node-js-restful-apis-with-json-web-tokens-9f811a92bb52
   const userController = new UserController();
   userController.getUsersList(req).then((val) => {
     res.send(val);

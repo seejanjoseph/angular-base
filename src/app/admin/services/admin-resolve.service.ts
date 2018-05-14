@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
+import { BackendConnectService } from '../../core/backend-connect.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AdminResolve implements Resolve<any> {
-  constructor() {}
+  constructor(private backendConnectService: BackendConnectService) { }
 
-  resolve() {
-    console.log("tet");
-    return new Promise((resolve, reject) => resolve('string'));
+  resolve(): Observable<any> {
+    return this.backendConnectService.get('users')
+      .catch(err => {
+        console.error(err); // deal with API error (eg not found)                
+        return Observable.empty<any>();
+      });
   }
 }

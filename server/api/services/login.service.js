@@ -6,14 +6,12 @@ class LoginService {
     }
 
     userValidation(filteredUser) {
-        try {
-            const token = jwt.sign(
+        try {           
+            const token = jwt.sign({ username: filteredUser.userName },
+                'my-super-secret-key',
                 {
-                    username: filteredUser.userName,
-                    exp: Math.floor(Date.now() / 1000) + (60 * 60)
-                },
-                'my-super-secret-key'
-            );
+                    expiresIn: Math.floor(Date.now() / 1000) + (60 * 60) // expires in 24 hours
+                });
             return {
                 success: true,
                 message: 'Enjoy your token!',

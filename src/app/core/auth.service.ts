@@ -11,7 +11,6 @@ export class AuthService {
 
     const token = sessionStorage.getItem('app-token');
     if (token) {
-      console.log(true);
       return true;
     } else {
       return false;
