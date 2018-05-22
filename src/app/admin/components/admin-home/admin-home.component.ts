@@ -8,15 +8,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin-home.component.scss']
 })
 export class AdminHomeComponent implements OnInit {
-
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.data.subscribe(({ data }) => {
+      console.log(data);
       if (!data.success) {
         this.router.navigate(['/']);
       }
     });
   }
-
 }

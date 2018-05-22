@@ -8,8 +8,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'landing', pathMatch: 'full' },
   {
     path: 'landing',
-    //component: LoginHomeComponent,  
-    loadChildren: '../login/login.module#LoginModule'
+    loadChildren: '../login/login.module#LoginModule',
+    data: {preload: true}
   },
   {
     path: 'user',

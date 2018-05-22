@@ -11,6 +11,7 @@ class UserController {
     return new Promise((resolve, reject) => {
       try {
         this.utilityService.verifyToken(req.headers).then((verfiedData) => {
+          console.log(verfiedData);
           if (verfiedData && verfiedData.success) {
             this.userModel.getUsersList().then((usersList) => {
               resolve({

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminRoutingModule } from './admin.routing';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
-import { LoginComponent } from './components/login/login.component';
 import { AdminResolve } from './services/admin-resolve.service';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   imports: [
@@ -11,7 +11,7 @@ import { AdminResolve } from './services/admin-resolve.service';
   ],
   declarations: [
     AdminHomeComponent,
-    LoginComponent
+    UserListComponent
   ],
   providers: [
     AdminResolve
