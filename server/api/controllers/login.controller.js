@@ -9,6 +9,7 @@ class LoginController {
   }
 
   userValidation(req) {
+
     return new Promise((resolve, reject) => {
       try {
         let returnObj;
@@ -17,7 +18,7 @@ class LoginController {
         if (userName && password) {
           this.userModel.getUser(userName, password).then((filterdUser) => {
             if (filterdUser.length) {
-              let userInfo = this.loginService.userValidation(filterdUser); 
+              let userInfo = this.loginService.userValidation(filterdUser);
               if (userInfo.success) {
                 resolve(userInfo);
               } else {

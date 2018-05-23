@@ -1,3 +1,4 @@
+let mongoose = require('mongoose');
 let UserModel = require('../models/user.model');
 let UtilityService = require('../services/utility.service');
 
@@ -10,6 +11,8 @@ class UserController {
   getUsersList(req) {
     return new Promise((resolve, reject) => {
       try {
+        
+     
         this.utilityService.verifyToken(req.headers).then((verfiedData) => {
           console.log(verfiedData);
           if (verfiedData && verfiedData.success) {

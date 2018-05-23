@@ -1,5 +1,6 @@
 let express = require('express');
 let router = express.Router();
+var mongoose = require('mongoose');
 
 let UserController = require('../controllers/user.controller');
 let LoginController = require('../controllers/login.controller');
