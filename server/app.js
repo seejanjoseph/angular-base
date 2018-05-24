@@ -3,22 +3,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var apiIndex = require('./api/routes/index');
 var db = require('./db');
-//var Test = require('./api/models/test.model');
-//var mongoose = require('mongoose');
-
 var app = express();
 
-/*db.once('open', function callback() {   
-    var query = Test.find({});
-    query.exec(function (err, users) {
-        if (err) {
-            console.log({ err: 'Error while fetching users' });
-        } else {
-            // If no errors are found, it responds with a JSON of all users
-            console.log(users);
-        }
-    });
-});*/
 
 //Set up default mongoose connection
 /*var mongoDB = 'mongodb://seejan:mLab123@ds121248.mlab.com:21248/mongo-base';

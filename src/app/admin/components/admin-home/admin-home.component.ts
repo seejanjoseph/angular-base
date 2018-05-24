@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+//import { } from '../../';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit() {
     this.route.data.subscribe(({ data }) => {
       console.log(data);
+
       if (!data.success) {
         this.router.navigate(['/']);
       }

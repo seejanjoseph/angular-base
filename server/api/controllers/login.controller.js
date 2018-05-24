@@ -1,4 +1,3 @@
-//let jwt = require('jsonwebtoken');
 let UserModel = require('../models/user.model');
 let LoginService = require('../services/login.service');
 
