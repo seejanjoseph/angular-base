@@ -25,11 +25,6 @@ export class BackendConnectService {
       catchError(this.handleError('get'))
     );
   }
-  /*post(endPoint, input): Observable<any> {
-    return this.http.post(`${this.baseUrl}${endPoint}`, input, this.httpOptions).pipe(
-      catchError(this.handleError('post'))
-    );
-  }*/
 
   put(endPoint, input): Observable<any> {
     return this.http.put(`${this.baseUrl}${endPoint}`, input, this.httpOptions).pipe(

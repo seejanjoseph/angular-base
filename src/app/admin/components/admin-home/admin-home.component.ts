@@ -1,6 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-//import { } from '../../';
+import { DataService } from '../../../core/data.service';
 
 
 @Component({
@@ -9,15 +9,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin-home.component.scss']
 })
 export class AdminHomeComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router,
+    private dataService: DataService) { }
 
   ngOnInit() {
-    this.route.data.subscribe(({ data }) => {
-      console.log(data);
-
-      if (!data.success) {
+    let userList = this.route.snapshot.data;
+    if (userList && userList.data && !userList.data.success) {        
         this.router.navigate(['/']);
+      } else {
+        this.dataService.updateUsers(userList.data.data);
       }
-    });
   }
 }
