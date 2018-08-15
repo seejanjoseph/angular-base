@@ -25,14 +25,14 @@ class LoginController {
               }
             } else {
               resolve({
-                message: 'something went wrong',
-                error: 'not valid user or passowrd',
+                message: 'something went wrong.',
+                error: 'not valid user or passowrd.',
                 success: false
               });
             }
           }).catch((err) => {
             reject({
-              desc: 'user and password are empty',
+              desc: 'user and password are empty.',
               error: err,
               success: false
             });
