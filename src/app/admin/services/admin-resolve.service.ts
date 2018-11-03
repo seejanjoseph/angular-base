@@ -3,6 +3,7 @@ import { Resolve } from '@angular/router';
 import { BackendConnectService } from '../../core/backend-connect.service';
 import { DataService } from '../../core/data.service'
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/empty' 
 
 @Injectable()
 export class AdminResolve implements Resolve<any> {
@@ -15,7 +16,7 @@ export class AdminResolve implements Resolve<any> {
     const staticUrl: string = 'users';
     return this.backendConnectService.get(staticUrl)
       .catch(err => {                
-        return Observable.empty<any>();
+        return Observable.empty();
       });
   }
 }
