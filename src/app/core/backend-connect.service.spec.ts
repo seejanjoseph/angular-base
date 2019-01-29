@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { BackendConnectService } from './backend-connect.service';
 
-describe('CoreService', () => {
+describe('BackendConnectService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [BackendConnectService]

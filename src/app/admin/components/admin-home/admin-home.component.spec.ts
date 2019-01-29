@@ -1,27 +1,41 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { AdminHomeComponent } from './admin-home.component';
 import { DataService } from '../../../core/data.service';
 
-fdescribe('AdminHomeComponent', () => {
+describe('AdminHomeComponent', () => {
   let component: AdminHomeComponent;
   let fixture: ComponentFixture<AdminHomeComponent>;
 
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
-        AdminHomeComponent 
+      declarations: [
+        AdminHomeComponent
       ],
-      imports :[
+      imports: [
         RouterTestingModule
-        
+
       ],
       providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { 
+            snapshot: { 
+              data: { 
+                data: {
+                  success: true 
+                } 
+              } 
+            }
+          }
+        },
         DataService
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -34,3 +48,5 @@ fdescribe('AdminHomeComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+

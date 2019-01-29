@@ -1,11 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AdminResolve } from './admin-resolve.service';
+import { BackendConnectService } from '../../core/backend-connect.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { DataService } from '../../core/data.service';
 
-describe('AuthService', () => {
+describe('AdminResolve', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AdminResolve]
+      providers: [AdminResolve, BackendConnectService, HttpClient, HttpHandler, DataService]
     });
   });
 
